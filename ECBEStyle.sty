@@ -1,0 +1,48 @@
+\ProvidesPackage{ECBEStyle}[2025/09/04 ECBE Lab Report Style]
+
+% --- Core packages (kept minimal and common) ---
+\RequirePackage{graphicx}   % for \includegraphics (logo & figures)
+\RequirePackage{amsmath,amssymb} % equations
+\RequirePackage{booktabs}   % nicer tables (tabular still works without it)
+\RequirePackage{hyperref}   % clickable refs/cites
+\RequirePackage{geometry}   % page margins
+
+% --- Reasonable defaults (non-intrusive) ---
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% -------- Title Page Environment --------
+% Args:
+% 1 = Logo path (e.g., images/adu_logo.png)
+% 2 = Experiment Title
+% 3 = Course Code -- Lab #
+% 4 = Student 1
+% 5 = Student 2
+% 6 = Student 3
+% 7 = Lab Engineer
+% 8 = Faculty
+\newenvironment{labtitlepage}[8]{%
+  \begin{titlepage}
+    \centering
+    \vspace*{0.5cm}
+    \includegraphics[height=3.0cm]{#1}\par
+    \vspace{1.5cm}
+    {\LARGE \textbf{#2}\par}\vspace{0.6cm}
+    {\large #3\par}
+    \vspace{1.2cm}
+    \rule{0.85\linewidth}{0.4pt}\par
+    \vspace{0.8cm}
+    \begin{tabular}{@{}rl@{}}
+      Student 1: & #4 \\
+      Student 2: & #5 \\
+      Student 3: & #6 \\
+      Lab Engineer: & #7 \\
+      Faculty: & #8 \\
+      Date: & \today \\
+    \end{tabular}
+    \vspace{1.2cm}\par
+    \rule{0.85\linewidth}{0.4pt}\par
+    \vfill
+    Abu Dhabi University
+  \end{titlepage}
+}{}
